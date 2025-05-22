@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Games Hub | Created by TradeGenius07</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --dark: #0f0f15;
+            --light: #f5f6fa;
+            --accent: #fd79a8;
+            --neon: #00f2ff;
+            --india-orange: #FF9933;
+            --india-green: #138808;
+            --pakistan-green: #01411C;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            perspective: 1000px;
+        }
+        
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .telegram-banner {
+            position: relative;
+            z-index: 3;
+            background: linear-gradient(90deg, #0088cc 0%, #00aced 100%);
+            color: white;
+            padding: 12px 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 136, 204, 0.5);
+            animation: glow-telegram 2s infinite alternate;
+        }
+        
+        .telegram-banner a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .telegram-banner a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        @keyframes glow-telegram {
+            from {
+                box-shadow: 0 0 10px -5px #0088cc;
+            }
+            to {
+                box-shadow: 0 0 20px 5px #0088cc;
+            }
+        }
+        
+        header {
+            position: relative;
+            z-index: 2;
+            padding: 25px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 15, 21, 0.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            background: linear-gradient(to right, var(--primary), var(--neon));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--neon));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 0 15px rgba(108, 92, 231, 0.5);
+        }
+        
+        .signature {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .signature span {
+            color: var(--neon);
+            font-weight: bold;
+            text-shadow: 0 0 8px rgba(0, 242, 255, 0.5);
+        }
+        
+        .dashboard-container {
+            position: relative;
+            z-index: 1;
+            padding: 40px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            margin-right: 20px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+        
+        .section-title .divider {
+            flex-grow: 1;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary), transparent);
+            box-shadow: 0 0 10px rgba(108, 92, 231, 0.3);
+        }
+        
+        .india-title h2 {
+            background: linear-gradient(to right, var(--india-orange), var(--india-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .pakistan-title h2 {
+            background: linear-gradient(to right, var(--pakistan-green), #FFFFFF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        .game-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            position: relative;
+            will-change: transform;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(108, 92, 231, 0.5),
+                        0 0 30px rgba(0, 242, 255, 0.4);
+            border-color: var(--neon);
+        }
+        
+        .game-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .game-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, rgba(15, 15, 21, 0.9), transparent);
+        }
+        
+        .game-info {
+            padding: 20px;
+        }
+        
+        .game-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--light);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+        }
+        
+        .game-meta {
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .play-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: linear-gradient(135deg, var(--primary), var(--neon));
+            color: var(--dark);
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+        }
+        
+        .play-btn:hover {
+            box-shadow: 0 0 25px rgba(0, 242, 255, 0.8);
+            transform: translateY(-2px);
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 242, 255, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(0, 242, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 242, 255, 0);
+            }
+        }
+        
+        .play-btn:active {
+            transform: scale(0.95) translateY(0);
+        }
+        
+        .play-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%, -50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .play-btn:focus:not(:active)::after {
+            animation: ripple 0.6s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
+        }
+        
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .india-badge {
+            background: linear-gradient(to right, var(--india-orange), var(--india-green));
+            color: white;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .pakistan-badge {
+            background: linear-gradient(to right, var(--pakistan-green), #FFFFFF);
+            color: white;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        footer {
+            position: relative;
+            z-index: 2;
+            padding: 30px 50px;
+            text-align: center;
+            background: rgba(15, 15, 21, 0.7);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 50px;
+        }
+        
+        .real-time-timer {
+            font-size: 1rem;
+            color: var(--neon);
+            margin-bottom: 15px;
+            text-shadow: 0 0 8px rgba(0, 242, 255, 0.5);
+        }
+        
+        .copyright {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header, .dashboard-container, footer {
+                padding: 20px;
+            }
+            
+            .games-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+            
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="telegram-banner">
+        <a href="https://t.me/TradeGenius07" target="_blank">
+            <i class="fab fa-telegram"></i> Join TradeGenius07 on Telegram
+        </a>
+    </div>
+    
+    <canvas class="particles" id="particles-js"></canvas>
+    
+    <header>
+        <div class="logo">
+            <h1>Premium Games Hub</h1>
+        </div>
+        <div class="user-info">
+            <div class="user-avatar">U</div>
+            <div class="signature">
+                Secured by: <span>Created by TradeGenius07</span>
+            </div>
+        </div>
+    </header>
+    
+    <div class="dashboard-container">
+        <!-- Indian Games Section -->
+        <div class="section-title india-title">
+            <h2>INDIAN GAMES</h2>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="games-grid">
+            <!-- Game 1 -->
+            <div class="game-card">
+                <div class="game-image" style="background-image: url('https://via.placeholder.com/400x200/6c5ce7/ffffff?text=91+Club');">
+                    <span class="badge india-badge">Trending</span>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">91 Club</h3>
+                    <div class="game-meta">
+                        <span><i class="fas fa-users"></i> 10K+ Online</span>
+                        <span><i class="fas fa-star"></i> 4.8</span>
+                    </div>
+                    <button class="play-btn" onclick="playGame('91 Club', event)">Play Now</button>
+                </div>
+            </div>
+            
+            <!-- Game 2 -->
+            <div class="game-card">
+                <div class="game-image" style="background-image: url('https://via.placeholder.com/400x200/FD79A8/ffffff?text=Ok+Win');">
+                    <span class="badge india-badge">New</span>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">Ok Win</h3>
+                    <div class="game-meta">
+                        <span><i class="fas fa-users"></i> 8.5K+ Online</span>
+                        <span><i class="fas fa-star"></i> 4.7</span>
+                    </div>
+                    <button class="play-btn" onclick="playGame('Ok Win', event)">Play Now</button>
+                </div>
+            </div>
+            
+            <!-- Game 3 -->
+            <div class="game-card">
+                <div class="game-image" style="background-image: url('https://via.placeholder.com/400x200/00F2FF/ffffff?text=Diu+Win');">
+                    <span class="badge india-badge">Popular</span>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">Diu Win</h3>
+                    <div class="game-meta">
+                        <span><i class="fas fa-users"></i> 7.2K+ Online</span>
+                        <span><i class="fas fa-star"></i> 4.6</span>
+                    </div>
+                    <button class="play-btn" onclick="playGame('Diu Win', event)">Play Now</button>
+                </div>
+            </div>
+            
+            <!-- Game 4 -->
+            <div class="game-card">
+                <div class="game-image" style="background-image: url('https://via.placeholder.com/400x200/FF9933/ffffff?text=Jalwa');">
+                    <span class="badge india-badge">Hot</span>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">Jalwa</h3>
+                    <div class="game-meta">
+                        <span><i class="fas fa-users"></i> 6.8K+ Online</span>
+                        <span><i class="fas fa-star"></i> 4.5</span>
+                    </div>
+                    <button class="play-btn" onclick="playGame('Jalwa', event)">Play Now</button>
+                </div>
+            </div>
+            
+            <!-- Game 5 -->
+            <div class="game-card">
+                <div class="game-image" style="background-image: url('https://via.placeholder.com/400x200/138808/ffffff?text=Tashan');">
+                    <span class="badge india-badge">Featured</span>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">Tashan</h3>
+                    <div class="game-meta">
+                        <span><i class="fas fa-users"></i> 5.9K+ Online</span>
+                        <span><i class="fas fa-star"></i> 4.4</span>
+                    </div>
+                    <button class="play-btn" onclick="playGame('Tashan', event)">Play Now</button>
+                </div>
+            </div>
+            
+            <!-- Game 6 -->
+            <div class="game-card">
+                <div class="game-image" style="background-image: url('https://via.placeholder.com/400x200/A29BFE/ffffff?text=BDG+Win');">
+                    <span class="badge india-badge">Popular</span>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">BDG Win</h3>
+                    <div class="game-meta">
+                        <span><i class="fas fa-users"></i> 5.5K+ Online</span>
+                        <span><i class="fas fa-star"></i> 4.3</span>
+                    </div>
+                    <button class="play-btn" onclick="playGame('BDG Win', event)">Play Now</button>
+                </div>
+            </div>
+            
+            <!-- Game 7 -->
+            <div class="game-card">
+                <div class="game-image" style="background-image: url('https://via.placeholder.com/400x200/6c5ce7/ffffff?text=Big+Mumbai');">
+                    <span class="badge india-badge">New</span>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">Big Mumbai</h3>
+                    <div class="game-meta">
+                        <span><i class="fas fa-users"></i> 4.8K+ Online</span>
+                        <span><i class="fas fa-star"></i> 4.2</span>
+                    </div>
+                    <button class="play-btn" onclick="playGame('Big Mumbai', event)">Play Now</button>
+                </div>
+            </div>
+            
+            <!-- Game 8 -->
+            <div class="game-card">
+                <div class="game-image" style="background-image: url('https://via.placeholder.com/400x200/FD79A8/ffffff?text=51+Game');">
+                    <span class="badge india-badge">Trending</span>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">51 Game</h3>
+                    <div class="game-meta">
+                        <span><i class="fas fa-users"></i> 4.5K+ Online</span>
+                        <span><i class="fas fa-star"></i> 4.1</span>
+                    </div>
+                    <button class="play-btn" onclick="playGame('51 Game', event)">Play Now</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pakistan Games Section -->
+        <div class="section-title pakistan-title">
+            <h2>PAKISTAN GAMES</h2>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="games-grid">
+            <!-- Game 1 -->
+            <div class="game-card">
+                <div class="game-image" style="background-image: url('https://via.placeholder.com/400x200/01411C/ffffff?text=92+Dado');">
+                    <span class="badge pakistan-badge">Popular</span>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">92 Dado</h3>
+                    <div class="game-meta">
+                        <span><i class="fas fa-users"></i> 8.7K+ Online</span>
+                        <span><i class="fas fa-star"></i> 4.7</span>
+                    </div>
+                    <button class="play-btn" onclick="playGame('92 Dado', event)">Play Now</button>
+                </div>
+            </div>
+            
+            <!-- Game 2 -->
+            <div class="game-card">
+                <div class="game-image" style="background-image: url('https://via.placeholder.com/400x200/01411C/ffffff?text=Pak+Win');">
+                    <span class="badge pakistan-badge">Trending</span>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">Pak Win</h3>
+                    <div class="game-meta">
+                        <span><i class="fas fa-users"></i> 7.8K+ Online</span>
+                        <span><i class="fas fa-star"></i> 4.6</span>
+                    </div>
+                    <button class="play-btn" onclick="playGame('Pak Win', event)">Play Now</button>
+                </div>
+            </div>
+            
+            <!-- Game 3 -->
+            <div class="game-card">
+                <div class="game-image" style="background-image: url('https://via.placeholder.com/400x200/01411C/ffffff?text=Green+Lucky');">
+                    <span class="badge pakistan-badge">New</span>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">Green Lucky</h3>
+                    <div class="game-meta">
+                        <span><i class="fas fa-users"></i> 6.5K+ Online</span>
+                        <span><i class="fas fa-star"></i> 4.5</span>
+                    </div>
+                    <button class="play-btn" onclick="playGame('Green Lucky', event)">Play Now</button>
+                </div>
+            </div>
+            
+            <!-- Game 4 -->
+            <div class="game-card">
+                <div class="game-image" style="background-image: url('https://via.placeholder.com/400x200/01411C/ffffff?text=Moon+Star');">
+                    <span class="badge pakistan-badge">Hot</span>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">Moon Star</h3>
+                    <div class="game-meta">
+                        <span><i class="fas fa-users"></i> 5.9K+ Online</span>
+                        <span><i class="fas fa-star"></i> 4.4</span>
+                    </div>
+                    <button class="play-btn" onclick="playGame('Moon Star', event)">Play Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="real-time-timer" id="timer">
+            Server Time: <span id="time"></span>
+        </div>
+        <div class="copyright">
+            &copy; 2023 Premium Games Hub. All rights reserved. | Secured by: <span>Created by TradeGenius07</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Real-time timer
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { 
+                hour12: true, 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit' 
+            });
+            document.getElementById('time').textContent = timeString;
+        }
+        
+        setInterval(updateTime, 1000);
+        updateTime();
+        
+        // Particles.js configuration
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#a29bfe" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#6c5ce7", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" }
+                }
+            }
+        });
+        
+        function playGame(gameName, event) {
+            const button = event.currentTarget;
+            
+            button.classList.add('active');
+            
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple';
+            button.appendChild(ripple);
+            
+            const rect = button.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+            
+            localStorage.setItem('selectedGame', gameName);
+            
+            setTimeout(() => {
+                window.location.href = 'game.html';
+            }, 300);
+        }
+        
+        const style = document.createElement('style');
+        style.textContent = `
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.7);
+                transform: scale(0);
+                animation: ripple 0.6s linear;
+                pointer-events: none;
+            }
+            
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            
+            .play-btn.active {
+                transform: scale(0.95);
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
