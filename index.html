@@ -42,45 +42,6 @@
             z-index: 0;
         }
         
-        .telegram-banner {
-            position: relative;
-            z-index: 3;
-            background: linear-gradient(90deg, #0088cc 0%, #00aced 100%);
-            color: white;
-            padding: 12px 0;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 136, 204, 0.5);
-            animation: glow-telegram 2s infinite alternate;
-        }
-        
-        .telegram-banner a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 20px;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .telegram-banner a:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        @keyframes glow-telegram {
-            from {
-                box-shadow: 0 0 10px -5px #0088cc;
-            }
-            to {
-                box-shadow: 0 0 20px 5px #0088cc;
-            }
-        }
-        
         header {
             position: relative;
             z-index: 2;
@@ -106,7 +67,6 @@
             background-clip: text;
             color: transparent;
             letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
         }
         
         .user-info {
@@ -126,7 +86,6 @@
             color: var(--dark);
             font-weight: bold;
             font-size: 1.2rem;
-            box-shadow: 0 0 15px rgba(108, 92, 231, 0.5);
         }
         
         .signature {
@@ -137,7 +96,6 @@
         .signature span {
             color: var(--neon);
             font-weight: bold;
-            text-shadow: 0 0 8px rgba(0, 242, 255, 0.5);
         }
         
         .dashboard-container {
@@ -159,14 +117,12 @@
             font-family: 'Poppins', sans-serif;
             font-size: 1.8rem;
             margin-right: 20px;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
         
         .section-title .divider {
             flex-grow: 1;
             height: 2px;
             background: linear-gradient(to right, var(--primary), transparent);
-            box-shadow: 0 0 10px rgba(108, 92, 231, 0.3);
         }
         
         .india-title h2 {
@@ -198,13 +154,12 @@
             transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
             position: relative;
             will-change: transform;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         }
         
         .game-card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(108, 92, 231, 0.5),
-                        0 0 30px rgba(0, 242, 255, 0.4);
+            box-shadow: 0 15px 40px rgba(108, 92, 231, 0.3),
+                        0 0 30px rgba(0, 242, 255, 0.2);
             border-color: var(--neon);
         }
         
@@ -234,7 +189,6 @@
             font-size: 1.3rem;
             margin-bottom: 10px;
             color: var(--light);
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
         }
         
         .game-meta {
@@ -260,25 +214,11 @@
             position: relative;
             overflow: hidden;
             font-family: 'Montserrat', sans-serif;
-            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
         }
         
         .play-btn:hover {
-            box-shadow: 0 0 25px rgba(0, 242, 255, 0.8);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
             transform: translateY(-2px);
-            animation: pulse 1.5s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(0, 242, 255, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(0, 242, 255, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(0, 242, 255, 0);
-            }
         }
         
         .play-btn:active {
@@ -324,19 +264,16 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
         
         .india-badge {
             background: linear-gradient(to right, var(--india-orange), var(--india-green));
             color: white;
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
         }
         
         .pakistan-badge {
             background: linear-gradient(to right, var(--pakistan-green), #FFFFFF);
             color: white;
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
         }
         
         footer {
@@ -354,7 +291,6 @@
             font-size: 1rem;
             color: var(--neon);
             margin-bottom: 15px;
-            text-shadow: 0 0 8px rgba(0, 242, 255, 0.5);
         }
         
         .copyright {
@@ -371,20 +307,10 @@
             .games-grid {
                 grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             }
-            
-            .logo h1 {
-                font-size: 1.5rem;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="telegram-banner">
-        <a href="https://t.me/TradeGenius07" target="_blank">
-            <i class="fab fa-telegram"></i> Join TradeGenius07 on Telegram
-        </a>
-    </div>
-    
     <canvas class="particles" id="particles-js"></canvas>
     
     <header>
@@ -643,32 +569,40 @@
             }
         });
         
+    
         function playGame(gameName, event) {
             const button = event.currentTarget;
             
+           
             button.classList.add('active');
             
+          
             const ripple = document.createElement('span');
             ripple.className = 'ripple';
             button.appendChild(ripple);
             
+        
             const rect = button.getBoundingClientRect();
             const x = event.clientX - rect.left;
             const y = event.clientY - rect.top;
             ripple.style.left = `${x}px`;
             ripple.style.top = `${y}px`;
             
+        
             setTimeout(() => {
                 ripple.remove();
             }, 600);
             
+          
             localStorage.setItem('selectedGame', gameName);
             
+          
             setTimeout(() => {
                 window.location.href = 'game.html';
             }, 300);
         }
         
+      
         const style = document.createElement('style');
         style.textContent = `
             .ripple {
